@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<js:Container xmlns:fx="http://ns.adobe.com/mxml/2009"
+			  xmlns:js="library://ns.apache.org/flexjs/basic">
+	
+	<fx:Script>
+		<![CDATA[
+			import org.apache.flex.events.CustomEvent;
+			import org.apache.flex.events.MouseEvent;
+			
+			protected function onLogin(event:org.apache.flex.events.MouseEvent):void
+			{
+				dispatchEvent(new CustomEvent("login"));		
+			}
+			
+			protected function onRegister(event:org.apache.flex.events.MouseEvent):void
+			{
+				dispatchEvent(new CustomEvent("register"));
+			}
+			
+		]]>
+	</fx:Script>
+	<js:beads>
+		<js:VerticalColumnLayout numColumns="2" />
+	</js:beads>
+	<js:Label text="UserId: " className="lblStyle"  style="marginTop:2"/>
+	<js:TextInput id="txtUserId" width="200"/>
+	
+	<js:Label text="Password: " style="marginTop:15" className="lblStyle"/>
+	<js:TextInput id="txtPasswordId" style="marginTop:12" width="200">
+		<js:beads>
+			<js:PasswordInputBead />			
+		</js:beads>
+	</js:TextInput>
+	<js:Label text="" />
+	<js:HContainer style="marginTop:15">
+		<js:TextButton text="Login" click="onLogin(event)"  />
+		<js:Spacer width="10" />
+		<js:TextButton text="Register" click="onRegister(event)" />	
+	</js:HContainer>
+	
+</js:Container>

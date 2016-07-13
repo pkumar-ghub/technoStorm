@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<js:Container xmlns:fx="http://ns.adobe.com/mxml/2009"
+                 xmlns:js="library://ns.apache.org/flexjs/basic">
+	
+	<js:DataGrid width="100%" height="300"  id="transactionGrid">
+			<js:style>
+				<js:SimpleCSSStyles top="0" left="0" right="0" />
+			</js:style>
+			<js:columns>
+				<js:DataGridColumn label="Beneficiary" dataField="beneficiary"   />
+				<js:DataGridColumn label="Amount" dataField="amount"  />
+				<js:DataGridColumn label="Status" dataField="status"   />
+			</js:columns>
+	</js:DataGrid>
+</js:Container>

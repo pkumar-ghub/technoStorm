@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<js:VContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
+                 xmlns:js="library://ns.apache.org/flexjs/basic">
+	<fx:Script>
+		<![CDATA[
+			import org.apache.flex.events.CustomEvent;
+			import org.apache.flex.events.MouseEvent;
+			
+			protected function onRequest(event:org.apache.flex.events.MouseEvent):void
+			{
+				dispatchEvent(new CustomEvent("request"));				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<js:Container style="margin:auto">
+		<js:beads>
+			<js:VerticalColumnLayout numColumns="2" />
+		</js:beads>
+		<js:Label text="Beneficiary: " className="lblStyle" style="marginTop:1"/>
+		<js:DropDownList id="baneficiaryComboId" width="200" height="25" labelField="label" />
+		
+		<js:Label text="Amount: " className="lblStyle" style="marginTop:15"/>
+		<js:TextInput id="txtAmtId" width="200" style="marginTop:12"/>
+		
+		<js:Label text="Payment Mode: " className="lblStyle" style="marginTop:15"/>
+		<js:DropDownList id="paymentModeComboId" width="200" height="25" style="marginTop:12">
+			<js:dataProvider>
+				<fx:Array>
+					<fx:String>--Select--</fx:String>
+					<fx:String>Credit Card</fx:String>
+					<fx:String>Debit Card</fx:String>
+					<fx:String>Internet Banking</fx:String>
+				</fx:Array>
+			</js:dataProvider>
+		</js:DropDownList>
+		
+		<js:Label text="" />
+		<js:TextButton text="Request" style="marginTop:15" click="onRequest(event)"/>
+	</js:Container>	
+	<js:Spacer height="20" />
+	<js:DataGrid width="100%" height="100" visible="false"  id="transactionGrid">
+		<js:style>
+			<js:SimpleCSSStyles top="0" left="0" right="0" />
+		</js:style>
+		<js:columns>
+			<js:DataGridColumn label="Beneficiary" dataField="beneficiary"   />
+			<js:DataGridColumn label="Amount" dataField="amount"  />
+			<js:DataGridColumn label="Status" dataField="status"   />
+		</js:columns>
+	</js:DataGrid>
+</js:VContainer>

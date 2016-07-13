@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cordova:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+					 xmlns:local="*"
+					 xmlns:js="library://ns.apache.org/flexjs/basic" 
+					 xmlns:cordova="library://ns.apache.org/flexjs/cordova" applicationComplete="onDeviceReady()" xmlns:models="models.*" xmlns:controllers="controllers.*">
+	<fx:Style>
+		
+		.global {
+			color:                  #170505;
+			fillAlphas:             1.00, 1.00; /* last pair are for OVER state */
+			fillColors: 		    #FFFFFF, #DDDDDD, #FFFFFF, #EEEEEE;
+		}
+		
+	</fx:Style>
+	<fx:Script>
+		<![CDATA[			
+			private function onDeviceReady():void
+			{
+				initialView.currentState = "login";
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<js:HTTPService id="technoStormService" url="http://ap-pun-lp1327:8080/CustRegister">
+		</js:HTTPService>        
+	</fx:Declarations>
+	<cordova:valuesImpl>
+		<js:SimpleCSSValuesImpl />
+	</cordova:valuesImpl>
+	<js:model>
+		<models:TechnoStormModel />
+	</js:model>
+	<js:controller>
+		<controllers:TechnoStormController />
+	</js:controller>
+	<cordova:initialView>
+		<local:HomeView />
+	</cordova:initialView>	
+</cordova:Application>
